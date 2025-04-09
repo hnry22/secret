@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🎉 Selamat Ulang Tahun Keziaaurelia! 🎉</title>
+  <style>
+    body {
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 100vh;
+      background: linear-gradient(135deg, #ffb3cc, #ff80ab);
+      text-align: center;
+      color: #444;
+      overflow: hidden;
+      position: relative;
+    }
+    h1 {
+      font-size: 2em;
+      color: #ff66b2; /* Ubah menjadi warna pink lembut agar lebih nyatu */
+      margin-top: 0;
+      animation: sparkle 1.5s infinite;
+    }
+    p {
+      font-size: 1.2em;
+      color: #ffffff; /* Warna putih supaya kontras dan mudah dibaca */
+      font-weight: 600;
+      animation: popIn 1s ease-in-out;
+    }
+    .balloon {
+      font-size: 3em;
+      margin-top: 20px;
+      animation: float 4s ease-in-out infinite;
+    }
+    .cake {
+      font-size: 5em;
+      margin-top: 20px;
+      animation: bounce 1.5s infinite ease-in-out;
+    }
+    .button {
+      margin-top: 30px;
+      padding: 10px 20px;
+      background-color: #ff3385;
+      color: white;
+      font-size: 1.2em;
+      border: none;
+      border-radius: 15px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .button:hover {
+      background-color: #ff1e5d;
+      transform: scale(1.1);
+      box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+    }
+    .button:active {
+      background-color: #ff0066;
+      transform: scale(1.05);
+    }
+
+    /* Animasi */
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-20px);
+      }
+    }
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-30px); }
+      100% { transform: translateY(0); }
+    }
+    @keyframes sparkle {
+      0% { color: #ff3366; text-shadow: 0 0 10px #ff3366, 0 0 20px #ff3366; }
+      50% { color: #ff66b2; text-shadow: 0 0 15px #ff66b2, 0 0 25px #ff66b2; }
+      100% { color: #ff3366; text-shadow: 0 0 10px #ff3366, 0 0 20px #ff3366; }
+    }
+    @keyframes popIn {
+      0% { opacity: 0; transform: scale(0.8); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+    @keyframes flowerDance {
+      0% { transform: translateY(0); opacity: 0; }
+      50% { transform: translateY(-30px); opacity: 1; }
+      100% { transform: translateY(0); opacity: 0; }
+    }
+
+    /* Bunga yang bergerak */
+    .flower {
+      font-size: 2.5em;
+      position: absolute;
+      top: 0%; /* Ubah menjadi 0% agar bunga berada tepat di atas */
+      left: 50%;
+      transform: translateX(-50%);
+      animation: flowerDance 4s ease-in-out infinite;
+    }
+
+    /* Responsif untuk layar kecil */
+    @media screen and (max-width: 600px) {
+      h1 {
+        font-size: 1.8em;
+      }
+      p {
+        font-size: 1.1em;
+      }
+      .balloon {
+        font-size: 2.5em;
+      }
+      .cake {
+        font-size: 4em;
+      }
+      .button {
+        font-size: 1.1em;
+        padding: 8px 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="flower">🌸</div> <!-- Bunga bergerak -->
+  <h1>🎉 Selamat Ulang Tahun Keziaaurelia kurnia maharani! 🎉</h1>
+  <p>Semoga tahun ini dan besok seterusnya doa2 km tercapai semua,amiin🎂🎈</p>
+  <p>jadii aku orang pertama atau ga keziaa yang ucapain km ultah?</p>
+  <div class="balloon">🎈🎈🎈</div>
+  <div class="cake">🎂</div>
+  <button class="button" onclick="playBirthdaySong()">Putar Lagu Ulang Tahun 🎶</button>
+
+  <!-- Audio untuk lagu ulang tahun -->
+  <audio id="birthdayAudio" preload="auto">
+    <source src="birthday.mp3" type="audio/mpeg" />
+  </audio>
+
+  <script>
+    function playBirthdaySong() {
+      const audio = document.getElementById('birthdayAudio');
+      audio.play();
+      audio.loop = true;
+
+      // Animasi surprise setelah tombol dipencet
+      const surprise = document.createElement('div');
+      surprise.innerHTML = '🎉🎊happy umur 16! 🎊🎉';
+      surprise.style.fontSize = '2em';
+      surprise.style.color = '#ff3366';
+      surprise.style.position = 'absolute';
+      surprise.style.top = '50%';
+      surprise.style.left = '50%';
+      surprise.style.transform = 'translate(-50%, -50%)';
+      surprise.style.animation = 'popIn 1s ease-in-out';
+      document.body.appendChild(surprise);
+
+      setTimeout(() => {
+        surprise.remove();
+      }, 2000);
+    }
+  </script>
+</body>
+</html>
