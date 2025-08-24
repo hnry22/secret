@@ -3,10 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>🎉 Selamat Ulang Tahun Keziaaurelia! 🎉</title>
+  <title>🎉 Selamat Ulang Tahun Kezia aurelia 🎉</title>
+  <!-- Tambah Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: 'Comic Sans MS', cursive, sans-serif;
+      font-family: 'Comic Neue', cursive, sans-serif; /* ganti font agar aman di Android */
       margin: 0;
       padding: 0;
       display: flex;
@@ -22,13 +24,13 @@
     }
     h1 {
       font-size: 2em;
-      color: #ff66b2; /* Ubah menjadi warna pink lembut agar lebih nyatu */
+      color: #ff66b2;
       margin-top: 0;
       animation: sparkle 1.5s infinite;
     }
     p {
       font-size: 1.2em;
-      color: #ffffff; /* Warna putih supaya kontras dan mudah dibaca */
+      color: #ffffff;
       font-weight: 600;
       animation: popIn 1s ease-in-out;
     }
@@ -36,6 +38,7 @@
       font-size: 3em;
       margin-top: 20px;
       animation: float 4s ease-in-out infinite;
+      font-family: "Noto Color Emoji", "Comic Neue", sans-serif; /* biar emoji 🎈 aman */
     }
     .cake {
       font-size: 5em;
@@ -65,12 +68,8 @@
 
     /* Animasi */
     @keyframes bounce {
-      0%, 100% {
-        transform: translateY(0);
-      }
-      50% {
-        transform: translateY(-20px);
-      }
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
     }
     @keyframes float {
       0% { transform: translateY(0); }
@@ -96,43 +95,32 @@
     .flower {
       font-size: 2.5em;
       position: absolute;
-      top: 0%; /* Ubah menjadi 0% agar bunga berada tepat di atas */
+      top: 0%;
       left: 50%;
       transform: translateX(-50%);
       animation: flowerDance 4s ease-in-out infinite;
     }
 
-    /* Responsif untuk layar kecil */
+    /* Responsif */
     @media screen and (max-width: 600px) {
-      h1 {
-        font-size: 1.8em;
-      }
-      p {
-        font-size: 1.1em;
-      }
-      .balloon {
-        font-size: 2.5em;
-      }
-      .cake {
-        font-size: 4em;
-      }
-      .button {
-        font-size: 1.1em;
-        padding: 8px 16px;
-      }
+      h1 { font-size: 1.8em; }
+      p { font-size: 1.1em; }
+      .balloon { font-size: 2.5em; }
+      .cake { font-size: 4em; }
+      .button { font-size: 1.1em; padding: 8px 16px; }
     }
   </style>
 </head>
 <body>
-  <div class="flower">🌸</div> <!-- Bunga bergerak -->
-  <h1>🎉 Selamat Ulang Tahun Keziaaurelia kurnia maharani! 🎉</h1>
-  <p>Semoga tahun ini dan besok seterusnya doa2 km tercapai semua,amiin🎂🎈</p>
-  <p>jadii aku orang pertama atau ga keziaa yang ucapain km ultah?</p>
+  <div class="flower">🌸</div>
+  <h1>🎉 Selamat Ulang Tahun Kezia aurelia kurnia maharani 🎉</h1>
+  <p>Semoga tahun ini doa-doa km tercapai semua, aamiin 🎂🎈</p>
+  <p>jadiii aku orang pertama atau ga keziaa yang ucapain km ultah?</p>
   <div class="balloon">🎈🎈🎈</div>
   <div class="cake">🎂</div>
   <button class="button" onclick="playBirthdaySong()">Putar Lagu Ulang Tahun 🎶</button>
 
-  <!-- Audio untuk lagu ulang tahun -->
+  <!-- Audio -->
   <audio id="birthdayAudio" preload="auto">
     <source src="birthday.mp3" type="audio/mpeg" />
   </audio>
@@ -143,9 +131,9 @@
       audio.play();
       audio.loop = true;
 
-      // Animasi surprise setelah tombol dipencet
+      // Animasi surprise
       const surprise = document.createElement('div');
-      surprise.innerHTML = '🎉🎊happy umur 16! 🎊🎉';
+      surprise.innerHTML = '🎉🎊 yey sekarang umur 16🎊🎉';
       surprise.style.fontSize = '2em';
       surprise.style.color = '#ff3366';
       surprise.style.position = 'absolute';
@@ -155,9 +143,7 @@
       surprise.style.animation = 'popIn 1s ease-in-out';
       document.body.appendChild(surprise);
 
-      setTimeout(() => {
-        surprise.remove();
-      }, 2000);
+      setTimeout(() => { surprise.remove(); }, 3000);
     }
   </script>
 </body>
