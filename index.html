@@ -3,10 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>🎉 Ulang Tahun! 🎉</title>
+  <title>sksksksksk</title>
+  <!-- Tambah Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: 'Comic Sans MS', cursive, sans-serif;
+      font-family: 'Comic Neue', cursive, sans-serif;
       margin: 0;
       padding: 0;
       display: flex;
@@ -50,6 +52,7 @@
       transform: translateX(-50%);
       font-size: 3em;
       animation: float 5s ease-in-out infinite;
+      font-family: "Noto Color Emoji", "Comic Neue", sans-serif; /* biar emoji aman */
     }
     .button {
       margin-top: 30px;
@@ -101,12 +104,14 @@
 <body>
   <div id="app"></div>
   <script>
-    const birthdayDate = new Date("2025-12-01T00:00:00");
+    const birthdayDate = new Date("2025-08-24T00:00:00");
     const app = document.getElementById("app");
 
     function countdown(targetDate) {
       const now = new Date();
       const timeDiff = targetDate - now;
+
+      if (timeDiff < 0) return { days: 0, hours: 0, minutes: 0, seconds: 0 };
 
       const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
       const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -138,14 +143,14 @@
         app.innerHTML = `
           <h1>🎉 Ada yang ulang tahun nihh, siapa yahh? 🎉</h1>
           <div class="balloon">🎈</div>
-          <button class="button" onclick="location.href='birthday.html'">Mendapatkan ucapan dari henry</button>
+          <button class="button" onclick="location.href='birthday.html'">Mendapatkan ucapan dari Henry</button>
           <div class="local-time">${formatLocalTime()}</div>
         `;
       } else {
         const countdownTime = countdown(birthdayDate);
         app.innerHTML = `
           <h1>🎁 Sabar yahh Kezia~</h1>
-          <p>Ulang tahunnya masih lama banget tanggal  ${birthdayDate.toLocaleDateString()} </p>
+          <p>Ulang tahunnya masih lama banget tanggal ${birthdayDate.toLocaleDateString("id-ID", { day:"numeric", month:"long", year:"numeric" })}</p>
           <div class="countdown">
             <p>${countdownTime.days} Hari ${countdownTime.hours} Jam ${countdownTime.minutes} Menit ${countdownTime.seconds} Detik</p>
           </div>
@@ -160,3 +165,4 @@
   </script>
 </body>
 </html>
+
