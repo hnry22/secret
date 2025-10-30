@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🎉 Selamat Ulang Tahun Kezia Aurelia 🎉</title>
+  
+  <style>
+    /* Variabel Warna */
+    :root {
+      --primary-pink: #ff66b2; /* Merah muda utama */
+      --secondary-pink: #ff3385; /* Tombol & Aksen */
+      --green-gift: #4CAF50; /* Hijau Kado */
+      --background-start: #ffb3cc;
+      --background-end: #ff80ab;
+      --text-color-dark: #444;
+      --shadow-soft: rgba(0, 0, 0, 0.15); /* Shadow ringan untuk performa */
+      --glow-pink: rgba(255, 102, 178, 0.7); /* Glow lembut */
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif; 
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      min-height: 100vh;
+      background: linear-gradient(135deg, var(--background-start) 0%, var(--background-end) 100%);
+      text-align: center;
+      color: var(--text-color-dark);
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* --- DEKORASI BERAT DIHAPUS UNTUK PERFORMA --- */
+
+    /* CONTAINER UTAMA (Lebih Fokus dan Rapi) */
+    .message-box {
+      background: rgba(255, 255, 255, 0.98); /* Lebih solid, lebih mewah */
+      padding: 45px 35px;
+      border-radius: 30px; 
+      /* Shadow Halus dan Mewah */
+      box-shadow: 0 10px 30px var(--shadow-soft), 0 0 15px var(--glow-pink); 
+      max-width: 90%;
+      width: 550px;
+      position: relative;
+      z-index: 10;
+      animation: popIn 0.8s ease-out;
+      border: 2px solid white; /* Border putih tipis */
+    }
+
+    h1 {
+      font-size: clamp(2.2em, 6.5vw, 3.5em); 
+      color: var(--primary-pink);
+      margin-top: 0;
+      font-weight: 900;
+      /* Animasi sparkle disederhanakan untuk performa */
+      animation: sparkleLight 1.5s infinite;
+      line-height: 1.1;
+      text-shadow: 1px 1px 3px var(--shadow-soft);
+    }
+    
+    .message-box p {
+      font-size: clamp(1.2em, 3vw, 1.4em); 
+      color: var(--text-color-dark);
+      font-weight: 700;
+      margin: 18px 0;
+    }
+
+    /* TATA LETAK IKON (Tetap Grid untuk Kerapian) */
+    .icon-container {
+        display: grid;
+        grid-template-columns: 1fr 1.5fr 1fr;
+        align-items: center;
+        margin: 30px 0;
+    }
+    .balloon, .cake, .emoji-accent {
+      font-size: clamp(3.5em, 10vw, 6em);
+      margin: 0 auto;
+      /* Semua ikon menggunakan animasi float sederhana */
+      animation: float 4s ease-in-out infinite;
+      filter: drop-shadow(0 2px 3px var(--shadow-soft));
+    }
+    .cake { animation-delay: -1s; } /* Agar gerakannya berbeda */
+    .emoji-accent { animation-delay: -2s; }
+
+    /* --- TOMBOL (Menggunakan Transisi untuk Keringanan) --- */
+    .button-container {
+        margin-top: 45px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    .button {
+      padding: 18px 35px;
+      font-size: clamp(1.2em, 3.5vw, 1.4em);
+      font-weight: 900;
+      border-radius: 35px;
+      cursor: pointer;
+      transition: all 0.3s ease; /* Kunci performa: hanya transisi pada hover */
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); 
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .button:hover { 
+        transform: scale(1.05); /* Skala lebih kecil untuk performa */
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    }
+    #songButton { background-color: var(--secondary-pink); color: white; }
+    #giftButton { background-color: var(--green-gift); color: white; }
+
+    /* POP-UP KEJUTAN (Lebih Ringan) */
+    .surprise-message {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0.1); 
+      z-index: 1000;
+      
+      background: linear-gradient(45deg, #ff99e6, #ff4d94); 
+      color: white;
+      padding: 30px 40px;
+      border-radius: 30px;
+      /* Shadow dan Border Emas yang Lebih Ringan */
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px gold; 
+      border: 3px solid gold; 
+      
+      font-size: clamp(2.5em, 6vw, 4em);
+      font-weight: 900;
+      text-shadow: 1px 1px 3px var(--shadow-soft);
+
+      /* Animasi hanya zoomIn (Menghapus shimmer) */
+      animation: zoomIn 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards; 
+    }
+    .surprise-message span {
+        display: block;
+        font-size: 0.5em;
+        margin-top: 10px;
+        color: #ffe81a;
+    }
+
+    /* Bunga Sederhana */
+    .flower {
+      font-size: 3.5em;
+      position: absolute;
+      /* Menggunakan animasi float sederhana */
+      animation: float 6s ease-in-out infinite; 
+      z-index: 5;
+      filter: drop-shadow(0 0 5px var(--shadow-soft));
+    }
+    .flower:nth-child(1) { left: 5%; animation-delay: 0s; }
+    .flower:nth-child(2) { left: 90%; animation-delay: -2s; }
+    .flower:nth-child(3) { left: 40%; animation-delay: -4s; }
+
+
+    /* Keyframes Optimal */
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-15px); } /* Jarak lebih kecil */
+      100% { transform: translateY(0); }
+    }
+    @keyframes sparkleLight {
+      0%, 100% { color: var(--primary-pink); text-shadow: 0 0 5px var(--glow-pink); }
+      50% { color: white; text-shadow: 0 0 8px var(--glow-pink); }
+    }
+    @keyframes zoomIn {
+      100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+    }
+    @keyframes popIn {
+      0% { opacity: 0; transform: scale(0.95); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+  <div class="flower">🌸</div>
+  <div class="flower">🌼</div>
+  <div class="flower">🌺</div>
+
+  <div class="message-box">
+      <h1>🎉 Selamat Ulang Tahun Kezia Aurelia Kurnia Maharani 🎉</h1>
+      
+      <p>Semoga semua doa dan harapanmu tercapai tahun ini, Aamiin 🎂🎈</p>
+      <p>Jadi,aku orang pertama yang ucapin km ultah atau ga Kezia?</p>
+      
+      <div class="icon-container">
+          <div class="balloon">🎈</div>
+          <div class="cake">🎂</div>
+          <div class="emoji-accent">💖</div>
+      </div>
+
+      <div class="button-container">
+          <button class="button" id="songButton" onclick="handleSongAndGift()">Putar Lagu Ulang Tahun 🎶</button>
+
+          <button class="button" id="giftButton" onclick="stopAudioAndRedirect('kado.html')">ucapan berikutnya🎁</button>
+      </div>
+
+  </div>
+
+  <audio id="birthdayAudio" preload="auto">
+    <source src="birthday.mp3" type="audio/mpeg" />
+  </audio>
+
+  <script>
+    const audio = document.getElementById('birthdayAudio');
+    const songButton = document.getElementById('songButton');
+    const giftButton = document.getElementById('giftButton');
+
+    function stopAudioAndRedirect(url) {
+        audio.pause();
+        audio.currentTime = 0;
+        const surprise = document.querySelector('.surprise-message');
+        if (surprise) surprise.remove();
+        window.location.href = url;
+    }
+
+    function createSurprise() {
+      const oldSurprise = document.querySelector('.surprise-message');
+      if (oldSurprise) oldSurprise.remove();
+
+      const surprise = document.createElement('div');
+      surprise.classList.add('surprise-message');
+      surprise.innerHTML = '🎊 Yey, sekarang umur 16! 🎊<span>🎉 Happy Sweet Seventeen! 🎉</span>';
+      document.body.appendChild(surprise);
+    }
+
+    function handleSongAndGift() {
+      if (audio.paused) {
+          audio.currentTime = 0; 
+          audio.play();
+          audio.loop = true;
+          
+          createSurprise();
+
+          songButton.innerHTML = 'Musik Berputar... 🎧';
+          songButton.disabled = true;
+
+          const surprise = document.querySelector('.surprise-message');
+          const delayUntilGift = 4000; 
+
+          setTimeout(() => {
+            // Hilangkan Pop-up dengan Transisi CSS Ringan
+            if (surprise) {
+                surprise.style.transition = 'opacity 0.4s, transform 0.4s';
+                surprise.style.opacity = '0';
+                surprise.style.transform = 'translate(-50%, -50%) scale(0.1)';
+                
+                setTimeout(() => {
+                    surprise.remove();
+                }, 400); 
+            }
+            
+            giftButton.style.display = 'block';
+            songButton.style.display = 'none';
+          }, delayUntilGift);
+      }
+    }
+    
+    // FUNGSI PEMBERHENTIAN AUDIO DI BACKGROUND/KELUAR WEB
+    document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+            audio.pause();
+        } 
+    });
+    window.addEventListener('beforeunload', () => {
+        audio.pause();
+        audio.currentTime = 0;
+    });
+
+    giftButton.style.display = 'none';
+  </script>
+</body>
+</html>
