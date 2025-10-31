@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🐣Login dulu</title>
+
+    <!-- Font Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Style CSS -->
+    <style>
+      body {
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(135deg, #fbeaff, #d6e0ff);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        overflow: hidden;
+      }
+
+      .login_container {
+        background: #fff;
+        padding: 2.5rem;
+        border-radius: 18px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        width: 320px;
+        transform: scale(0.95);
+        transition: all 0.3s ease;
+      }
+
+      .login_container:hover {
+        transform: scale(1);
+      }
+
+      .login_container h2 {
+        margin-bottom: 25px;
+        color: #333;
+        font-weight: 500;
+      }
+
+      .login_form input {
+        width: 100%;
+        padding: 12px;
+        margin: 10px 0;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        outline: none;
+        transition: 0.3s;
+        font-size: 14px;
+      }
+
+      .login_form input:focus {
+        border-color: #a56cc1;
+        box-shadow: 0 0 5px #a56cc1;
+      }
+
+      #loginBtn {
+        width: 100%;
+        padding: 12px;
+        background-color: #a56cc1;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: 0.3s ease;
+        font-size: 15px;
+      }
+
+      #loginBtn:hover {
+        background-color: #925bb3;
+        transform: scale(1.05);
+      }
+
+      .login_description {
+        margin-top: 18px;
+        font-size: 13px;
+        color: #666;
+        line-height: 1.5;
+      }
+
+      strong {
+        color: #a56cc1;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="login_container">
+      <h2>Hi 👋🏼 Kezia, login dulu yuk!</h2>
+
+      <form id="loginForm" class="login_form">
+        <input type="text" id="username" placeholder="Username" autocomplete="off" />
+        <input type="password" id="password" placeholder="Password" autocomplete="off" />
+        <button type="submit" id="loginBtn">Login</button>
+      </form>
+
+      <p class="login_description">
+        Helloooo 👋🏼<br />
+        Username-nya isi <strong>"112"</strong> dan password-nya
+        <strong>"kezia"</strong> yaa!!!
+      </p>
+    </div>
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+    <!-- SweetAlert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- JavaScript -->
+    <script>
+      // Animasi masuk saat halaman dimuat
+      gsap.from(".login_container", {
+        duration: 1,
+        opacity: 0,
+        y: -50,
+        ease: "power2.out",
+      });
+
+      // Event untuk login
+      document.getElementById("loginForm").addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const username = document.getElementById("username").value.trim();
+        const password = document.getElementById("password").value.trim();
+
+        // Validasi username & password
+        if (username === "112" && password === "kezia") {
+          Swal.fire({
+            title: "Login Berhasil! 🎉",
+            text: "Selamat datang, Kezia 💜",
+            icon: "success",
+            showConfirmButton: false,
+            timer: 1800,
+          });
+
+          // Arahkan ke halaman kado.html setelah login sukses
+          setTimeout(() => {
+            window.location.href = "kado.html";
+          }, 1800);
+        } else {
+          Swal.fire({
+            title: "Oops 😅",
+            text: "Username atau password kamu salah!",
+            icon: "error",
+            confirmButtonText: "Coba lagi",
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
